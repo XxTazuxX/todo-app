@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "A dpi web project",
   "main": "src/index.js",
-  "homepage":"https://XxTazuxX.github.io/todo",
+  "homepage": "https://XxTazuxX.github.io/todo-app",
   "scripts": {
-    "deploy": "gh-pages -d build",
+    "deploy": "npm run build && gh-pages -d build",
     "dev": "npm run watch:css && CHOKIDAR_USEPOLLING=true react-scripts start",
     "build": "npm run watch:css && react-scripts build",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
