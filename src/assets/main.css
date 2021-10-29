@@ -643,6 +643,9 @@ video {
 	display: -ms-flexbox;
 	display: flex;
 }
+.grid{
+	display: grid;
+}
 .h-screen{
 	height: 100vh;
 }
@@ -669,6 +672,9 @@ video {
 }
 .cursor-pointer{
 	cursor: pointer;
+}
+.grid-cols-1{
+	grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 .flex-col{
 	-webkit-box-orient: vertical;
@@ -701,6 +707,9 @@ video {
 	-webkit-box-pack: justify;
 	    -ms-flex-pack: justify;
 	        justify-content: space-between;
+}
+.gap-4{
+	gap: 1rem;
 }
 .space-y-4 > :not([hidden]) ~ :not([hidden]){
 	--tw-space-y-reverse: 0;
@@ -800,9 +809,9 @@ video {
 	font-size: 0.875rem;
 	line-height: 1.25rem;
 }
-.text-5xl{
-	font-size: 3rem;
-	line-height: 1;
+.text-xs{
+	font-size: 0.75rem;
+	line-height: 1rem;
 }
 .text-4xl{
 	font-size: 2.25rem;
@@ -832,6 +841,32 @@ video {
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
+
+/* Custom CSS */
+
+/* Scrollbar
+----------------------------------------------- */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #fff;
+  -webkit-box-shadow: inset 1px 1px 2px #e0e0e0;
+  border: 1px solid #d8d8d8;
+  border-radius: 15px;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e3a8a;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(155, 155, 155, 0.4);
+  border-radius: 15px;
+}
+::-webkit-scrollbar-thumb:hover {
+  -webkit-box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb:active {
+  background: #333;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
 @media (min-width: 640px){
 
 	.sm\:h-3\/6{
@@ -850,6 +885,10 @@ video {
 		-webkit-box-flex: 1;
 		    -ms-flex: 1 1 0%;
 		        flex: 1 1 0%;
+	}
+
+	.sm\:grid-cols-2{
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
 	.sm\:flex-row{
@@ -882,6 +921,16 @@ video {
 		border-radius: 1rem;
 	}
 
+	.sm\:text-3xl{
+		font-size: 1.875rem;
+		line-height: 2.25rem;
+	}
+
+	.sm\:text-base{
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+
 	.sm\:text-sm{
 		font-size: 0.875rem;
 		line-height: 1.25rem;
@@ -891,5 +940,25 @@ video {
 
 	.md\:w-4\/6{
 		width: 66.666667%;
+	}
+
+	.md\:grid-cols-3{
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.md\:text-5xl{
+		font-size: 3rem;
+		line-height: 1;
+	}
+
+	.md\:text-xl{
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+	}
+}
+@media (min-width: 1280px){
+
+	.xl\:grid-cols-4{
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 }

@@ -1,7 +1,14 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from "react";
-import { Avatar, Menu, MenuItem, Divider } from "@mui/material";
+import {
+  Avatar,
+  Menu,
+  MenuItem,
+  Divider,
+  IconButton,
+  Paper,
+} from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
 import { blue, grey } from "@mui/material/colors";
@@ -44,19 +51,31 @@ const Navbar = ({ loginFunc }) => {
             <KeyboardArrowDownIcon sx={{ color: cGrey }} />
           </div>
         </div>
+
         <Menu
           id="profile-menu"
           anchorEl={menuAnchor}
           open={open}
           onClose={handleClose}
         >
-          <MenuItem sx={{ color: cGrey }} onClick={handleClose}>
-            Profile
-          </MenuItem>
-          <Divider />
-          <MenuItem sx={{ color: cGrey }} onClick={handleLogout}>
-            Logout
-          </MenuItem>
+          <Paper
+            elevation={24}
+            variant="outlined"
+            square
+            sx={{ width: 120, textAlign: "center" }}
+          >
+            <IconButton>
+              <MenuItem sx={{ color: cGrey }} onClick={handleClose}>
+                Profile
+              </MenuItem>
+            </IconButton>
+            <Divider />
+            <IconButton>
+              <MenuItem sx={{ color: cGrey }} onClick={handleLogout}>
+                Logout
+              </MenuItem>
+            </IconButton>
+          </Paper>
         </Menu>
         <div>
           <Avatar src="" />
