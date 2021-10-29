@@ -16,7 +16,7 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 const TaskCard = () => {
   return (
-    <Card variant="outlined">
+    <Card>
       <CardHeader
         title={
           <Typography variant="h6" color={grey[700]}>

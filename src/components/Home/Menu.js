@@ -38,7 +38,7 @@ const Menus = [
 const Menu = () => {
   return (
     <div className="flex justify-center items-start py-[10px] px-[20px] flex-col">
-      <h3 className="mt-4 py-[10px] px-4 text-sm text-gray-400">
+      <h3 className="mt-4 py-[10px] px-1 md:px-4 text-sm text-gray-400">
         Tasks Management
       </h3>
       {Menus.map(({ name, icon }) => {
