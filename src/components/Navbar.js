@@ -59,21 +59,16 @@ const Navbar = ({ loginFunc }) => {
           onClose={handleClose}
         >
           <Paper
-            elevation={24}
             variant="outlined"
             square
             sx={{ width: 120, textAlign: "center" }}
           >
-            <IconButton>
-              <MenuItem sx={{ color: cGrey }} onClick={handleClose}>
-                Profile
-              </MenuItem>
+            <IconButton onClick={handleClose}>
+              <MenuItem sx={{ color: cGrey }}>Profile</MenuItem>
             </IconButton>
             <Divider />
-            <IconButton>
-              <MenuItem sx={{ color: cGrey }} onClick={handleLogout}>
-                Logout
-              </MenuItem>
+            <IconButton onClick={handleLogout}>
+              <MenuItem sx={{ color: cGrey }}>Logout</MenuItem>
             </IconButton>
           </Paper>
         </Menu>

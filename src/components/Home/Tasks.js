@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import Chip from "@mui/material/Chip";
 import AddIcon from "@mui/icons-material/Add";
@@ -14,11 +15,7 @@ const theme = createTheme({
   },
 });
 
-const Tasks = () => {
-  const handleClick = () => {
-    console.info("You clicked the Chip.");
-  };
-
+const Tasks = ({ newTaskHandler, tasks, setTasks, filteredTasks }) => {
   return (
     <div className="pb-2">
       <div className="flex justify-between px-11 py-10">
@@ -41,19 +38,24 @@ const Tasks = () => {
             minWidth: "110px",
             minHeight: "40px",
           }}
-          onClick={handleClick}
+          onClick={newTaskHandler}
         />
       </div>
-      <div className="flex justify-center items-center px-3">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          <TaskCard />
-          <TaskCard />
-          <TaskCard />
-          <TaskCard />
-          <TaskCard />
-          <TaskCard />
-          <TaskCard />
-          <TaskCard />
+      <div className="flex justify-center items-start px-4">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {filteredTasks.map((task) => {
+            return (
+              <TaskCard
+                key={task.id}
+                task={task}
+                tasks={tasks}
+                setTasks={setTasks}
+                title={task.title}
+                description={task.description}
+                date={task.date}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
