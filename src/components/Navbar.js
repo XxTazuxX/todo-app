@@ -8,6 +8,7 @@ import {
   Divider,
   IconButton,
   Paper,
+  Link,
 } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
@@ -64,7 +65,12 @@ const Navbar = ({ loginFunc }) => {
             sx={{ width: 120, textAlign: "center" }}
           >
             <IconButton onClick={handleClose}>
-              <MenuItem sx={{ color: cGrey }}>Profile</MenuItem>
+              <Link
+                href="https://github.com/XxTazuxX/todo-app"
+                underline="none"
+              >
+                <MenuItem sx={{ color: cGrey }}>Profile</MenuItem>
+              </Link>
             </IconButton>
             <Divider />
             <IconButton onClick={handleLogout}>

@@ -814,6 +814,9 @@ video {
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
+.underline{
+	text-decoration: underline;
+}
 .filter{
 	filter: var(--tw-filter);
 }
