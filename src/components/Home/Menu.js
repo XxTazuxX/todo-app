@@ -44,7 +44,7 @@ const Menus = [
 
 const Menu = ({ setStatus, status }) => {
   return (
-    <div className="flex justify-center items-start py-[10px] px-[20px] flex-col">
+    <div className="flex justify-center items-start py-[10px] px-[10px] flex-col">
       <h3 className="mt-4 py-[10px] px-1 md:px-4 text-sm text-gray-400">
         Tasks Management
       </h3>

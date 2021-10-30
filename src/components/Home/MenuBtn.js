@@ -29,7 +29,7 @@ const MenuBtn = ({ name, icon, value, setStatus, status }) => {
   };
 
   return (
-    <div className="py-2 ml-1 md:ml-3">
+    <div className="py-3 ml-[1px] md:ml-3">
       <Button
         theme={theme}
         value={value}

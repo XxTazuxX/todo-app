@@ -19,8 +19,7 @@ Use a better box model (opinionated).
 *,
 ::before,
 ::after {
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 /**
@@ -29,8 +28,7 @@ Use a more readable tab size (opinionated).
 
 html {
 	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	   tab-size: 4;
+	tab-size: 4;
 }
 
 /**
@@ -98,8 +96,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 */
 
 abbr[title] {
-	-webkit-text-decoration: underline dotted;
-	        text-decoration: underline dotted;
+	text-decoration: underline dotted;
 }
 
 /**
@@ -405,8 +402,7 @@ body {
 *,
 ::before,
 ::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; /* 1 */
+  box-sizing: border-box; /* 1 */
   border-width: 0; /* 2 */
   border-style: solid; /* 2 */
   border-color: currentColor; /* 2 */
@@ -436,26 +432,6 @@ img {
 
 textarea {
   resize: vertical;
-}
-
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  opacity: 1;
-  color: #9ca3af;
-}
-
-input::-moz-placeholder, textarea::-moz-placeholder {
-  opacity: 1;
-  color: #9ca3af;
-}
-
-input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  opacity: 1;
-  color: #9ca3af;
-}
-
-input::-ms-input-placeholder, textarea::-ms-input-placeholder {
-  opacity: 1;
-  color: #9ca3af;
 }
 
 input::placeholder,
@@ -632,6 +608,9 @@ video {
 .mt-4{
 	margin-top: 1rem;
 }
+.ml-\[1px\]{
+	margin-left: 1px;
+}
 .mt-8{
 	margin-top: 2rem;
 }
@@ -639,15 +618,12 @@ video {
 	margin-top: 0.75rem;
 }
 .box-border{
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 .block{
 	display: block;
 }
 .flex{
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
 }
 .grid{
@@ -684,36 +660,22 @@ video {
 	grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 .flex-col{
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
+	flex-direction: column;
 }
 .flex-col-reverse{
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: reverse;
-	    -ms-flex-direction: column-reverse;
-	        flex-direction: column-reverse;
+	flex-direction: column-reverse;
 }
 .items-start{
-	-webkit-box-align: start;
-	    -ms-flex-align: start;
-	        align-items: flex-start;
+	align-items: flex-start;
 }
 .items-center{
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+	align-items: center;
 }
 .justify-center{
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
+	justify-content: center;
 }
 .justify-between{
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
+	justify-content: space-between;
 }
 .gap-5{
 	gap: 1.25rem;
@@ -757,17 +719,13 @@ video {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-.px-\[20px\]{
-	padding-left: 20px;
-	padding-right: 20px;
+.px-\[10px\]{
+	padding-left: 10px;
+	padding-right: 10px;
 }
 .px-1{
 	padding-left: 0.25rem;
 	padding-right: 0.25rem;
-}
-.py-2{
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
 }
 .px-11{
 	padding-left: 2.75rem;
@@ -857,8 +815,7 @@ video {
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 .filter{
-	-webkit-filter: var(--tw-filter);
-	        filter: var(--tw-filter);
+	filter: var(--tw-filter);
 }
 
 /* Custom CSS */
@@ -902,25 +859,13 @@ video {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  display: -webkit-box;
-  display: -ms-flexbox;
+  transform: translate(-50%, -50%);
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
   background: white;
-  -webkit-box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
   padding: 3vh 5vh 5vh 5vh;
   border-radius: 15px;
   z-index: 300;
@@ -1043,9 +988,7 @@ video {
 	}
 
 	.sm\:flex-1{
-		-webkit-box-flex: 1;
-		    -ms-flex: 1 1 0%;
-		        flex: 1 1 0%;
+		flex: 1 1 0%;
 	}
 
 	.sm\:grid-cols-2{
@@ -1053,29 +996,19 @@ video {
 	}
 
 	.sm\:flex-row{
-		-webkit-box-orient: horizontal;
-		-webkit-box-direction: normal;
-		    -ms-flex-direction: row;
-		        flex-direction: row;
+		flex-direction: row;
 	}
 
 	.sm\:flex-row-reverse{
-		-webkit-box-orient: horizontal;
-		-webkit-box-direction: reverse;
-		    -ms-flex-direction: row-reverse;
-		        flex-direction: row-reverse;
+		flex-direction: row-reverse;
 	}
 
 	.sm\:items-center{
-		-webkit-box-align: center;
-		    -ms-flex-align: center;
-		        align-items: center;
+		align-items: center;
 	}
 
 	.sm\:justify-center{
-		-webkit-box-pack: center;
-		    -ms-flex-pack: center;
-		        justify-content: center;
+		justify-content: center;
 	}
 
 	.sm\:rounded-2xl{
