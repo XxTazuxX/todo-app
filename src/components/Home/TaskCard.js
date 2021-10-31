@@ -20,16 +20,20 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 const TaskCard = ({ title, description, date, task, tasks, setTasks }) => {
   const complete = task.complete;
   let color = yellow[800];
+  let text = "Low";
 
   switch (task.important) {
     case "low":
       color = yellow[800];
+      text = "Low";
       break;
     case "medium":
       color = green[800];
+      text = "Medium";
       break;
     case "high":
       color = red[800];
+      text = "High";
       break;
   }
 
@@ -75,9 +79,15 @@ const TaskCard = ({ title, description, date, task, tasks, setTasks }) => {
             {date}
           </Typography>
         </IconButton>
-        <IconButton aria-label="important">
+        <Tooltip
+          TransitionComponent={Fade}
+          TransitionProps={{ timeout: 400 }}
+          placement="top"
+          arrow
+          title={text}
+        >
           <ImportContactsIcon sx={{ color: color }} />
-        </IconButton>
+        </Tooltip>
         <Tooltip
           TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }}

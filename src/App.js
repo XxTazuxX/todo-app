@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
+import { isToday, isTomorrow, isThisMonth } from "date-fns";
 
 import LoginPage from "./components/UserAuth/LoginPage";
 import Navbar from "./components/Navbar";
@@ -12,7 +13,6 @@ const App = () => {
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
-    date: "31/10/2021",
     important: "",
   });
   const [tasks, setTasks] = useState([]);
@@ -21,7 +21,13 @@ const App = () => {
 
   // useEffect
   useEffect(() => {
+    getLocalTask();
     handleFilteredTasks();
+  }, []);
+
+  useEffect(() => {
+    handleFilteredTasks();
+    saveLocalTask();
   }, [tasks, status]);
 
   // Functions
@@ -32,6 +38,15 @@ const App = () => {
         break;
       case "complete":
         setFilteredTasks(tasks.filter((task) => task.complete === true));
+        break;
+      case "today":
+        setFilteredTasks(tasks.filter((task) => isToday(task.parseDate)));
+        break;
+      case "tomorrow":
+        setFilteredTasks(tasks.filter((task) => isTomorrow(task.parseDate)));
+        break;
+      case "month":
+        setFilteredTasks(tasks.filter((task) => isThisMonth(task.parseDate)));
         break;
       default:
         setFilteredTasks(tasks);
@@ -44,6 +59,20 @@ const App = () => {
   };
   const newTaskHandler = () => {
     setOpen(!open);
+  };
+
+  // Local Storage
+  const saveLocalTask = () => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  };
+
+  const getLocalTask = () => {
+    if (localStorage.getItem("tasks") === null) {
+      localStorage.setItem("tasks", JSON.stringify([]));
+    } else {
+      const tasksLocal = JSON.parse(localStorage.getItem("tasks"));
+      setTasks(tasksLocal);
+    }
   };
 
   return (
