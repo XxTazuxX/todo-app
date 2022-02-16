@@ -1,21 +1,20 @@
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  CardActions,
-  IconButton,
-  Typography,
-  Tooltip,
-  Fade,
-} from "@mui/material";
-import { grey, green, red, yellow } from "@mui/material/colors";
-import {
-  Delete,
-  AccessTime,
-  ImportContacts,
-  CheckCircleOutline,
-  CheckCircle,
-} from "@mui/icons-material";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Tooltip from "@mui/material/Tooltip";
+import Fade from "@mui/material/Fade";
+import grey from "@mui/material/colors/grey";
+import green from "@mui/material/colors/green";
+import red from "@mui/material/colors/red";
+import yellow from "@mui/material/colors/yellow";
+import DeleteIcon from "@mui/icons-material/Delete";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import ImportContactsIcon from "@mui/icons-material/ImportContacts";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { firestore } from "../../firebase/firebase";
 
@@ -61,7 +60,7 @@ const TaskCard = ({ title, description, date, task, uid }) => {
         }
         action={
           <IconButton onClick={handleRemove} aria-label="delete">
-            <Delete />
+            <DeleteIcon />
           </IconButton>
         }
       />
@@ -70,7 +69,7 @@ const TaskCard = ({ title, description, date, task, uid }) => {
       </CardContent>
       <CardActions disableSpacing sx={{ bottom: 1 }}>
         <IconButton aria-label="date">
-          <AccessTime />
+          <AccessTimeIcon />
           <Typography variant="subtitle2" fontWeight="bold" color={grey[900]}>
             {date}
           </Typography>
@@ -82,7 +81,7 @@ const TaskCard = ({ title, description, date, task, uid }) => {
           arrow
           title={text}
         >
-          <ImportContacts sx={{ color: color }} />
+          <ImportContactsIcon sx={{ color: color }} />
         </Tooltip>
         <Tooltip
           TransitionComponent={Fade}
@@ -92,7 +91,7 @@ const TaskCard = ({ title, description, date, task, uid }) => {
           title={complete ? "Completed" : "In Progress"}
         >
           <IconButton onClick={handleComplete} aria-label="complete">
-            {complete ? <CheckCircle /> : <CheckCircleOutline />}
+            {complete ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
           </IconButton>
         </Tooltip>
       </CardActions>

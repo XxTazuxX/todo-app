@@ -4,7 +4,6 @@ import { getFirestore } from "firebase/firestore";
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithRedirect,
   signInWithPopup,
   signOut,
 } from "firebase/auth";

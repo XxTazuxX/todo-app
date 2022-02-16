@@ -1,37 +1,55 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useRef, useState } from "react";
-import { TextField, Button } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
 
 const SignUp = () => {
   const [error, setError] = useState("");
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfRef = useRef();
+  const [signUpUser, setSignUpUser] = useState({
+    email: "",
+    password: "",
+    passwordConf: "",
+  });
+
+  useEffect(() => {
+    if (signUpUser.password !== signUpUser.passwordConf) {
+      return setError("Password Did Not Match!!");
+    } else setError("");
+  });
+
+  const handleInput = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setSignUpUser({
+      ...signUpUser,
+      [name]: value,
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (passwordRef.current.value !== passwordConfRef.current.value) {
-      return setError("Password Did Not Match!!");
-    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="flex flex-col justify-center items-start space-y-4">
         <TextField
-          ref={emailRef}
+          name="email"
+          value={signUpUser.email}
+          onChange={handleInput}
           fullWidth
-          id="email"
           label="Email"
           variant="filled"
           size="small"
           required
         />
         <TextField
-          ref={passwordRef}
+          name="password"
+          value={signUpUser.password}
+          onChange={handleInput}
           fullWidth
-          id="password"
           label="Password"
           type="password"
           autoComplete="current-password"
@@ -39,10 +57,12 @@ const SignUp = () => {
           size="small"
           required
         />
+        {error ? <Alert severity="error">{error}</Alert> : null}
         <TextField
-          ref={passwordConfRef}
+          name="passwordConf"
+          value={signUpUser.passwordConf}
+          onChange={handleInput}
           fullWidth
-          id="password-confirm"
           label="Password"
           type="password"
           autoComplete="current-password"

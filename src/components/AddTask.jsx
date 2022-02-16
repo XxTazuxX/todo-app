@@ -81,11 +81,10 @@ const AddTask = ({ addTaskHandler, user }) => {
             <textarea
               value={newTask.description}
               onChange={handleInput}
-              type="text"
               name="description"
               placeholder="Description about this task"
               required
-            ></textarea>
+            />
           </div>
           <div className="input-content">
             <h3>Date picker</h3>

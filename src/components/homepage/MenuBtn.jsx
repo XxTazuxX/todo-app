@@ -1,6 +1,8 @@
 import React from "react";
-import { grey, blue } from "@mui/material/colors";
-import { Button, Typography } from "@mui/material";
+import grey from "@mui/material/colors/grey";
+import blue from "@mui/material/colors/blue";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({

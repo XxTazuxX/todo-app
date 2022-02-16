@@ -1,14 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 
 import { collection, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { collectIdsAndDocs } from "./utilities";
 import { auth, firestore } from "./firebase/firebase";
 
-import Navbar from "./components/Navbar";
-import Home from "./components/homepage/Home";
+import LinearProgress from "@mui/material/LinearProgress";
+
 import AddTask from "./components/AddTask";
-import AuthPage from "./components/UserAuth/AuthPage";
+const Home = lazy(() => import("./components/homepage/Home"));
+const Navbar = lazy(() => import("./components/Navbar"));
+const AuthPage = lazy(() => import("./components/UserAuth/AuthPage"));
+// import AuthPage from "./components/UserAuth/AuthPage";
 
 const App = () => {
   const [open, setOpen] = useState(false);
@@ -18,7 +21,8 @@ const App = () => {
 
   // User Data catch
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    let unsubscribe = null;
+    unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
     });
 
@@ -28,7 +32,8 @@ const App = () => {
   // Firebase Data Catch
   useEffect(() => {
     if (!user) return;
-    const unsubscribeTask = onSnapshot(
+    let unsubscribeTask = null;
+    unsubscribeTask = onSnapshot(
       collection(firestore, `users/${user.uid}/tasks`),
       (snapshot) => {
         const tasks = snapshot.docs.map(collectIdsAndDocs);
@@ -49,19 +54,21 @@ const App = () => {
 
   return (
     <div>
-      {open && <AddTask user={user} addTaskHandler={addTaskHandler} />}
-      {user ? (
-        <>
-          <Navbar
-            clearState={clearState}
-            displayName={displayName}
-            photoURL={photoURL}
-          />
-          <Home tasks={tasks} uid={uid} addTaskHandler={addTaskHandler} />
-        </>
-      ) : (
-        <AuthPage />
-      )}
+      <Suspense fallback={<LinearProgress />}>
+        {open && <AddTask user={user} addTaskHandler={addTaskHandler} />}
+        {user ? (
+          <>
+            <Navbar
+              clearState={clearState}
+              displayName={displayName}
+              photoURL={photoURL}
+            />
+            <Home tasks={tasks} uid={uid} addTaskHandler={addTaskHandler} />
+          </>
+        ) : (
+          <AuthPage />
+        )}
+      </Suspense>
     </div>
   );
 };

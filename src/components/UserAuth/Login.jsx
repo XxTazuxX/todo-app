@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
-import { TextField, Button, ButtonGroup } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
 import GoogleIcon from "@mui/icons-material/Google";
 import { signInWithGoogle } from "../../firebase/firebase";
 

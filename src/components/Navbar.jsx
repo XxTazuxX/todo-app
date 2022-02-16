@@ -1,16 +1,15 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from "react";
 import { signOutClick } from "../firebase/firebase";
-import {
-  Avatar,
-  Divider,
-  IconButton,
-  Link,
-  Menu,
-  MenuItem,
-  Paper,
-} from "@mui/material";
-import { KeyboardArrowDown, PlaylistAddCheck } from "@mui/icons-material";
+import Avatar from "@mui/material/Avatar";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import Link from "@mui/material/Link";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Paper from "@mui/material/Paper";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
 import { blue, grey } from "@mui/material/colors";
 
 // MUI Color
@@ -29,15 +28,15 @@ const Navbar = ({ clearState, displayName, photoURL }) => {
     setMenuAnchor(null);
   };
 
-  const signOut = () => {
+  const signOut = async () => {
     clearState();
-    signOutClick();
+    await signOutClick();
   };
 
   return (
     <div className="flex justify-between items-center px-3 md:px-8 py-1 md:py-3 box-border text-lg z-[105] border-b-{0.5px} border-gray-400">
       <div className="flex justify-center items-center">
-        <PlaylistAddCheck sx={{ color: cBlue, fontSize: "50px" }} />
+        <PlaylistAddCheckIcon sx={{ color: cBlue, fontSize: "50px" }} />
         <h1 className="ml-1 font-qahiri font-bold text-3xl text-blue-900">
           Todo List
         </h1>
@@ -53,7 +52,7 @@ const Navbar = ({ clearState, displayName, photoURL }) => {
             <h3>{displayName}</h3>
           </div>
           <div>
-            <KeyboardArrowDown sx={{ color: cGrey }} />
+            <KeyboardArrowDownIcon sx={{ color: cGrey }} />
           </div>
         </div>
 

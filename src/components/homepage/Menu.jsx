@@ -1,11 +1,9 @@
-import {
-  Reorder,
-  Cached,
-  DoneOutline,
-  Today,
-  NextPlan,
-  CalendarToday,
-} from "@mui/icons-material";
+import Reorder from "@mui/icons-material/Reorder";
+import Cached from "@mui/icons-material/Cached";
+import DoneOutline from "@mui/icons-material/DoneOutline";
+import Today from "@mui/icons-material/Today";
+import NextPlan from "@mui/icons-material/NextPlan";
+import CalendarToday from "@mui/icons-material/CalendarToday";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import MenuBtn from "./MenuBtn";
 

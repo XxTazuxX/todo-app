@@ -1,11 +1,13 @@
+import { lazy, Suspense } from "react";
 import Chip from "@mui/material/Chip";
-import { Add } from "@mui/icons-material";
+import LinearProgress from "@mui/material/LinearProgress";
+import AddIcon from "@mui/icons-material/Add";
 import { createTheme } from "@mui/material/styles";
-import { blue } from "@mui/material/colors";
+import blue from "@mui/material/colors/blue";
 
-import { dateFormate } from "../../utilities";
+import { dateFormat } from "../../utilities";
 
-import TaskCard from "./TaskCard";
+const TaskCard = lazy(() => import("./TaskCard"));
 
 const theme = createTheme({
   palette: {
@@ -28,7 +30,7 @@ const Tasks = ({ addTaskHandler, tasks, uid }) => {
           </h3>
         </div>
         <Chip
-          icon={<Add />}
+          icon={<AddIcon />}
           theme={theme}
           color="primary"
           label="New Task"
@@ -43,18 +45,26 @@ const Tasks = ({ addTaskHandler, tasks, uid }) => {
       </div>
       <div className="flex justify-center items-start px-4">
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {tasks.map((task) => {
-            return (
-              <TaskCard
-                key={task.id}
-                uid={uid}
-                task={task}
-                title={task.title}
-                description={task.description}
-                date={dateFormate(task.date)}
-              />
-            );
-          })}
+          <Suspense
+            fallback={
+              <div>
+                <LinearProgress />
+              </div>
+            }
+          >
+            {tasks.map((task) => {
+              return (
+                <TaskCard
+                  key={task.id}
+                  uid={uid}
+                  task={task}
+                  title={task.title}
+                  description={task.description}
+                  date={dateFormat(task.date)}
+                />
+              );
+            })}
+          </Suspense>
         </div>
       </div>
     </div>
