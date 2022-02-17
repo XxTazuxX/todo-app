@@ -11,7 +11,6 @@ import AddTask from "./components/AddTask";
 const Home = lazy(() => import("./components/homepage/Home"));
 const Navbar = lazy(() => import("./components/Navbar"));
 const AuthPage = lazy(() => import("./components/UserAuth/AuthPage"));
-// import AuthPage from "./components/UserAuth/AuthPage";
 
 const App = () => {
   const [open, setOpen] = useState(false);
